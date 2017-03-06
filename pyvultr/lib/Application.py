@@ -26,7 +26,7 @@ class Application(BaseAPI):
             Documentation: https://www.vultr.com/api/#app_app_list
         """
         apps = self.get_object("app/list")
-        for attr in apps.keys()
+        for attr in apps.keys():
             setattr(self, attr, apps[attr])
 
     def __str__(self):
