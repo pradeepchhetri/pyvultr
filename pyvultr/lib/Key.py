@@ -25,7 +25,7 @@ class Key(BaseAPI):
         """
             Documentation: https://www.vultr.com/api/#auth_info
         """
-        key = self.get_object("auth/info")
+        key = self.get_data("auth/info")
         for attr in key.keys():
             setattr(self, attr, key[attr])
 
