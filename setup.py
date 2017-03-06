@@ -9,6 +9,7 @@ except ImportError:
 
 packages = [
     'pyvultr',
+    'pyvultr.cmd',
     'pyvultr.lib'
 ]
 
