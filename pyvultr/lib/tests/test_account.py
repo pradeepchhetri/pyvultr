@@ -25,7 +25,7 @@ class TestAccount(BaseTest):
                       status=200,
                       content_type='application/json')
 
-        acct = self.account.get_object()
+        acct = self.account.get_object(self.token)
 
         self.assertEqual(responses.calls[0].request.url,
                          self.base_url + "account/info")
