@@ -31,4 +31,4 @@ class Account(BaseAPI):
             setattr(self, attr, account[attr])
 
     def __str__(self):
-        return "<Account>"
+        return "<%s>" % self.__class__.__name__

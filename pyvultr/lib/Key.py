@@ -6,7 +6,7 @@ from .baseapi import BaseAPI
 
 class Key(BaseAPI):
     def __init__(self, *args, **kwargs):
-        self.acl = None
+        self.acls = []
         self.name = None
         self.email = None
 
