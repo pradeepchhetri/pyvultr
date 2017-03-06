@@ -3,6 +3,7 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 import pyvultr
+import pyvultr.lib
 import unittest
 import responses
 
@@ -12,7 +13,7 @@ class TestAccount(BaseTest):
 
     def setUp(self):
         super(TestAccount, self).setUp()
-        self.account = pyvultr.Account(token=self.token)
+        self.account = pyvultr.lib.Account(token=self.token)
 
     @responses.activate
     def test_get_account(self):
