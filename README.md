@@ -1,2 +1,3 @@
-# vultr-py
-Python Client for Vultr (https://www.vultr.com)
+## vultr-py
+
+Python Client Library for [Vultr](https://www.vultr.com)
