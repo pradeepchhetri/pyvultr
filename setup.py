@@ -12,7 +12,7 @@ packages = [
     'pyvultr.lib'
 ]
 
-requires = open("requirements.txt").read().split()
+requires = open("requirements/base.txt").read().split()
 
 setup(
     name='pyvultr',
