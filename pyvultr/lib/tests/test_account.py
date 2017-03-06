@@ -9,7 +9,7 @@ from .BaseTest import BaseTest
 class TestAccount(BaseTest):
 
     def setUp(self):
-        super(TestAccount, self).SetUp()
+        super(TestAccount, self).setUp()
         self.account = pyvultr.Account(token=self.token)
 
     @responses.activate
