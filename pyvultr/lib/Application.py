@@ -27,7 +27,7 @@ class Application(BaseAPI):
         """
             Documentation: https://www.vultr.com/api/#app_app_list
         """
-        apps = self.get_object("app/list")
+        apps = self.get_data("app/list")
         for appid in apps.keys():
             if appid["name"] == self.name:
                 setattr(self, attr, apps[attr])
