@@ -3,9 +3,9 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 try:
-    from future.utils import iteritems
+    from builtins import itervalues
 except ImportError:
-    from six import iteritems
+    from six import itervalues
 
 from .baseapi import BaseAPI
 
@@ -34,8 +34,10 @@ class Application(BaseAPI):
         """
         apps = self.get_data("app/list")
 
-        for id, desc in iteritems(apps):
-            setattr(self, attr, desc[attr]) for attr in desc.keys() if desc["name"] == self.name
+        for desc in itervalues(apps):
+            if desc["name"] == self.name:
+                for attr in desc.keys():
+                    setattr(self, attr, desc[attr])
 
     def __str__(self):
         return "<Application: %s>" % (self.name)
