@@ -1,0 +1,37 @@
+{
+  "1": {
+    "APPID": "1",
+    "name": "LEMP",
+    "short_name": "lemp",
+    "deploy_name": "LEMP on CentOS 6 x64",
+    "surcharge": 0
+  },
+  "2": {
+    "APPID": "2",
+    "name": "WordPress",
+    "short_name": "wordpress",
+    "deploy_name": "WordPress on CentOS 6 x64",
+    "surcharge": 0
+  },
+  "3": {
+    "APPID": "3",
+    "name": "Minecraft",
+    "short_name": "minecraft",
+    "deploy_name": "Minecraft on CentOS 6 x64",
+    "surcharge": 0
+  },
+  "4": {
+    "APPID": "4",
+    "name": "Webmin",
+    "short_name": "webmin",
+    "deploy_name": "Webmin on CentOS 6 x64",
+    "surcharge": 0
+  },
+  "5": {
+    "APPID": "5",
+    "name": "GitLab",
+    "short_name": "gitlab",
+    "deploy_name": "GitLab on CentOS 6 x64",
+    "surcharge": 0
+  }
+}

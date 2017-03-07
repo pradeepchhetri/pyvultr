@@ -12,12 +12,14 @@ class Application(BaseAPI):
         self.deploy_name = None
         self.surcharge = None
 
+        super(Application, self).__init__(*args, **kwargs)
+
     @classmethod
-    def get_object(cls, api_token):
+    def get_object(cls, api_token, app_name):
         """
-            Class method that will return a Application object.
+            Class method that will return a Application object by Name.
         """
-        app = cls(token=api_token)
+        app = cls(token=api_token, name=app_name)
         app.load()
         return app
 
@@ -26,8 +28,9 @@ class Application(BaseAPI):
             Documentation: https://www.vultr.com/api/#app_app_list
         """
         apps = self.get_object("app/list")
-        for attr in apps.keys():
-            setattr(self, attr, apps[attr])
+        for appid in apps.keys():
+            if appid["name"] == self.name:
+                setattr(self, attr, apps[attr])
 
     def __str__(self):
         return "%s" % (self.name)
