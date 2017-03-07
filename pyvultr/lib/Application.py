@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import absolute_import, print_function, unicode_literals
+try:
+    from future.utils import iteritems
+except ImportError:
+    from six import iteritems
 
 from .baseapi import BaseAPI
 
@@ -28,9 +32,9 @@ class Application(BaseAPI):
             Documentation: https://www.vultr.com/api/#app_app_list
         """
         apps = self.get_data("app/list")
-        for appid in apps.keys():
-            if appid["name"] == self.name:
-                setattr(self, attr, apps[attr])
+        for app, description in iteritems(apps):
+            if description["name"] == self.name:
+                setattr(self, attr, description[attr])
 
     def __str__(self):
-        return "%s" % (self.name)
+        return "<Application: %s>" % (self.name)
