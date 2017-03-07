@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import absolute_import, print_function, unicode_literals
+
 try:
     from future.utils import iteritems
 except ImportError:
@@ -10,7 +11,7 @@ from .baseapi import BaseAPI
 
 class Application(BaseAPI):
     def __init__(self, *args, **kwargs):
-        self.appid = None
+        self.id = None
         self.name = None
         self.short_name = None
         self.deploy_name = None
@@ -32,10 +33,9 @@ class Application(BaseAPI):
             Documentation: https://www.vultr.com/api/#app_app_list
         """
         apps = self.get_data("app/list")
+
         for id, desc in iteritems(apps):
-            if desc["name"] == self.name:
-                for attr in desc.keys():
-                    setattr(self, attr, desc[attr])
+            setattr(self, attr, desc[attr]) for attr in desc.keys() if desc["name"] == self.name
 
     def __str__(self):
         return "<Application: %s>" % (self.name)
