@@ -32,9 +32,10 @@ class Application(BaseAPI):
             Documentation: https://www.vultr.com/api/#app_app_list
         """
         apps = self.get_data("app/list")
-        for app, description in iteritems(apps):
-            if description["name"] == self.name:
-                setattr(self, attr, description[attr])
+        for id, desc in iteritems(apps):
+            if desc["name"] == self.name:
+                for attr in desc.keys():
+                    setattr(self, attr, desc[attr])
 
     def __str__(self):
         return "<Application: %s>" % (self.name)
