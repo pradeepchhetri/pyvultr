@@ -20,7 +20,8 @@ class TestKey(BaseTest):
         data = self.load_from_file('auth/info.json')
 
         url = self.base_url + 'auth/info'
-        responses.add(responses.GET, url,
+        responses.add(responses.GET,
+                      url,
                       body=data,
                       status=200,
                       content_type='application/json')

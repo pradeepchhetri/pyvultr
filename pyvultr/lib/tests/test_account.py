@@ -20,7 +20,8 @@ class TestAccount(BaseTest):
         data = self.load_from_file('account/info.json')
 
         url = self.base_url + 'account/info'
-        responses.add(responses.GET, url,
+        responses.add(responses.GET,
+                      url,
                       body=data,
                       status=200,
                       content_type='application/json')

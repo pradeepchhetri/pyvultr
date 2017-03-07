@@ -20,7 +20,8 @@ class TestApplication(BaseTest):
         data = self.load_from_file('application/list.json')
 
         url = self.base_url + 'app/list'
-        responses.add(responses.GET, url,
+        responses.add(responses.GET,
+                      url,
                       body=data,
                       status=200,
                       content_type='application/json')
