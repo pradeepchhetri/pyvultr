@@ -29,11 +29,11 @@ class TestApplication(BaseTest):
 
         self.assertEqual(responses.calls[0].request.url,
                          self.base_url + "app/list")
-        self.assertEqual(key.APPID, "5")
-        self.assertEqual(key.name, "GitLab")
-        self.assertEqual(key.short_name, "gitlab")
-        self.assertEqual(key.deploy_name, "GitLab on CentOS 6 x64")
-        self.assertEqual(key.surcharge, 0)
+        self.assertEqual(app.APPID, "5")
+        self.assertEqual(app.name, "GitLab")
+        self.assertEqual(app.short_name, "gitlab")
+        self.assertEqual(app.deploy_name, "GitLab on CentOS 6 x64")
+        self.assertEqual(app.surcharge, 0)
 
 if __name__ == '__main__':
     unittest.main()
