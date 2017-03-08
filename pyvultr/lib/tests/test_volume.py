@@ -21,8 +21,8 @@ class TestVolume(BaseTest):
     @responses.activate
     def test_load(self):
         data = self.load_from_file('volume/list.json')
-        url = self.base_url + 'volume/list'
 
+        url = self.base_url + 'volume/list'
         responses.add(responses.GET,
                       url,
                       body=data,

@@ -30,7 +30,10 @@ class Volume(BaseAPI):
         """
         Documentation: https://www.vultr.com/api/#block_block_list
         """
-        volumes = self.get_data("block/list")
+        volumes = self.get_data(
+            "block/list",
+            type=GET
+        )
 
         for volume in volumes:
             if volume["SUBID"] == self.subid:
