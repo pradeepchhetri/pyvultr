@@ -26,6 +26,17 @@ class Volume(BaseAPI):
         volume.load()
         return volume
 
+    def load(self):
+        """
+        Documentation: https://www.vultr.com/api/#block_block_list
+        """
+        volumes = self.get_data("block/list")
+
+        for volume in volumes:
+            if volume["SUBID"] == self.subid:
+                for attr in volume.keys():
+                    setattr(self, attr, volume[attr])
+
     def create(self, *args, **kwargs):
         """
         Creates a Block Storage Volume.

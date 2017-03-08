@@ -19,7 +19,7 @@ REQUEST_TIMEOUT = 'PYTHON_VULTR_REQUEST_TIMEOUT_IN_SEC'
 
 class BaseAPI(object):
     """
-        Basic api class for Vultr APIs.
+    Basic api class for Vultr APIs.
     """
     token = ""
     end_point = "https://api.vultr.com/v1/"
@@ -34,10 +34,10 @@ class BaseAPI(object):
 
     def __perform_request(self, url, type=GET, params=None):
         """
-            This method will perform the real request,
-            in this way we can customize only the "output"
-            of the API call by using self.__call_api method.
-            This method will return the request object.
+        This method will perform the real request,
+        in this way we can customize only the "output"
+        of the API call by using self.__call_api method.
+        This method will return the request object.
         """
         if params is None:
             params = {}
@@ -89,9 +89,9 @@ class BaseAPI(object):
 
     def get_timeout(self):
         """
-            Checks if any timeout for the requests to Vultr is required.
-            To set a timeout, use the REQUEST_TIMEOUT environment
-            variable.
+        Checks if any timeout for the requests to Vultr is required.
+        To set a timeout, use the REQUEST_TIMEOUT environment
+        variable.
         """
         timeout_str = os.environ.get(REQUEST_TIMEOUT)
         if timeout_str:
@@ -105,9 +105,9 @@ class BaseAPI(object):
 
     def get_data(self, url, type=GET, params=None):
         """
-            This method is a basic implementation of __call_api that checks
-            errors too. In cas of success the method will return True or the
-            content of the response to the request.
+        This method is a basic implementation of __call_api that checks
+        errors too. In cas of success the method will return True or the
+        content of the response to the request.
         """
         if params is None:
             params = dict()

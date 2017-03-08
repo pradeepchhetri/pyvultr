@@ -15,7 +15,7 @@ class Key(BaseAPI):
     @classmethod
     def get_object(cls, api_token):
         """
-            Class method that will return a Key object.
+        Class method that will return a Key object.
         """
         key = cls(token=api_token)
         key.load()
@@ -23,7 +23,7 @@ class Key(BaseAPI):
 
     def load(self):
         """
-            Documentation: https://www.vultr.com/api/#auth_info
+        Documentation: https://www.vultr.com/api/#auth_info
         """
         key = self.get_data("auth/info")
         for attr in key.keys():

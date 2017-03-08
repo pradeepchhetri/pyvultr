@@ -4,63 +4,63 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 class Error(Exception):
     """
-        Base exception class
+    Base exception class
     """
     pass
 
 class DataReadError(Error):
     """
-        Error while reading data
+    Error while reading data
     """
     pass
 
 class JSONReadError(Error):
     """
-        Error while reading JSON
+    Error while reading JSON
     """
     pass
 
 class NoTokenError(Error):
     """
-        No Api-Key provided
+    No Api-Key provided
     """
     pass
 
 class InvalidTokenError(Error):
     """
-        Invalid Api-Key provided
+    Invalid Api-Key provided
     """
     pass
 
 class InvalidAPIError(Error):
     """
-        HTTP Resource not found
+    HTTP Resource not found
     """
     pass
 
 class InvalidHTTPMethodError(Error):
     """
-        Invalid HTTP method invoked
-        Allowed: GET, POST
+    Invalid HTTP method invoked
+    Allowed: GET, POST
     """
     pass
 
 class RequestFailedError(Error):
     """
-        Failed HTTP Request, check the
-        response body for detail
+    Failed HTTP Request, check the
+    response body for detail
     """
     pass
 
 class InternalServerError(Error):
     """
-        Internal Server Error
+    Internal Server Error
     """
     pass
 
 class RateLimitHitError(Error):
     """
-        Reached rate-limits,
-        Limit: 2 req/sec (avg)
+    Reached rate-limits,
+    Limit: 2 req/sec (avg)
     """
     pass

@@ -22,7 +22,7 @@ class Application(BaseAPI):
     @classmethod
     def get_object(cls, api_token, app_name):
         """
-            Class method that will return a Application object by Name.
+        Class method that will return a Application object by Name.
         """
         app = cls(token=api_token, name=app_name)
         app.load()
@@ -30,7 +30,7 @@ class Application(BaseAPI):
 
     def load(self):
         """
-            Documentation: https://www.vultr.com/api/#app_app_list
+        Documentation: https://www.vultr.com/api/#app_app_list
         """
         apps = self.get_data("app/list")
 

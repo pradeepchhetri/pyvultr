@@ -22,7 +22,7 @@ class Backup(BaseAPI):
     @classmethod
     def get_object(cls, api_token, backup_id):
         """
-            Class method that will return a Backup object by ID.
+        Class method that will return a Backup object by ID.
         """
         backup = cls(token=api_token, id=backup_id)
         backup.load()
@@ -30,7 +30,7 @@ class Backup(BaseAPI):
 
     def load(self):
         """
-            Documentation: https://www.vultr.com/api/#backup_backup_list
+        Documentation: https://www.vultr.com/api/#backup_backup_list
         """
         backups = self.get_data("backup/list")
 

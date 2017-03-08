@@ -16,7 +16,7 @@ class Account(BaseAPI):
     @classmethod
     def get_object(cls, api_token):
         """
-            Class method that will return an Account object.
+        Class method that will return an Account object.
         """
         acct = cls(token=api_token)
         acct.load()
@@ -24,7 +24,7 @@ class Account(BaseAPI):
 
     def load(self):
         """
-            Documentation: https://www.vultr.com/api/#account_info
+        Documentation: https://www.vultr.com/api/#account_info
         """
         account = self.get_data("account/info")
         for attr in account.keys():
