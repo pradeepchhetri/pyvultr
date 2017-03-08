@@ -30,15 +30,14 @@ class Volume(BaseAPI):
         """
         Documentation: https://www.vultr.com/api/#block_block_list
         """
-        volumes = self.get_data(
-            "block/list",
-            type=GET
-        )
+        volumes = self.get_data("block/list")
 
         for volume in volumes:
             if volume["SUBID"] == self.subid:
                 for attr in volume.keys():
                     setattr(self, attr, volume[attr])
+
+        return self
 
     def create(self, *args, **kwargs):
         """
