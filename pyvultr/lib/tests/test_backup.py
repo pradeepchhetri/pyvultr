@@ -30,7 +30,7 @@ class TestBackup(BaseTest):
 
         self.assertEqual(responses.calls[0].request.url,
                          self.base_url + "backup/list")
-        self.assertEqual(app.BACKUPID, "543d34149403a")
+        self.assertEqual(app.backupid, "543d34149403a")
         self.assertEqual(app.date_created, "2014-10-14 12:40:40")
         self.assertEqual(app.description, "Automatic server backup")
         self.assertEqual(app.size, "42949672960")

@@ -35,7 +35,7 @@ class Volume(BaseAPI):
         for volume in volumes:
             if volume["SUBID"] == self.subid:
                 for attr in volume.keys():
-                    setattr(self, attr, volume[attr])
+                    setattr(self, attr.lower(), volume[attr])
 
         return self
 

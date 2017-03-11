@@ -14,7 +14,7 @@ class TestVolume(BaseTest):
     def setUp(self):
         super(TestVolume, self).setUp()
         self.volume = pyvultr.lib.Volume(
-            subid='1313217',
+            subid=1313217,
             token=self.token
         )
 
@@ -22,7 +22,7 @@ class TestVolume(BaseTest):
     def test_load(self):
         data = self.load_from_file('volume/list.json')
 
-        url = self.base_url + 'volume/list'
+        url = self.base_url + 'block/list'
         responses.add(responses.GET,
                       url,
                       body=data,
@@ -31,8 +31,8 @@ class TestVolume(BaseTest):
 
         self.volume.load()
         self.assertEqual(responses.calls[0].request.url,
-                         self.base_url + "volume/list")
-        self.assertEqual(self.volume.subid, "1313217")
+                         self.base_url + "block/list")
+        self.assertEqual(self.volume.subid, 1313217)
         self.assertEqual(self.volume.date_created, "2016-31-29 10:10:48")
         self.assertEqual(self.volume.cost_per_month, 5)
         self.assertEqual(self.volume.status, "active")

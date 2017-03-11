@@ -11,7 +11,7 @@ from .baseapi import BaseAPI
 
 class Backup(BaseAPI):
     def __init__(self, *args, **kwargs):
-        self.id = None
+        self.backupid = None
         self.date_created = None
         self.description = None
         self.size = None
@@ -37,7 +37,7 @@ class Backup(BaseAPI):
         for desc in itervalues(backups):
             if desc["BACKUPID"] == self.id:
                 for attr in desc.keys():
-                    setattr(self, attr, desc[attr])
+                    setattr(self, attr.lower(), desc[attr])
 
     def __str__(self):
         return "<Backup: %s>" % (self.id)
