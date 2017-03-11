@@ -2,7 +2,7 @@
 
 from __future__ import absolute_import, print_function, unicode_literals
 
-from .baseapi import BaseAPI
+from .baseapi import BaseAPI, GET, POST
 
 class Volume(BaseAPI):
     def __init__(self, *args, **kwargs):
@@ -51,7 +51,7 @@ class Volume(BaseAPI):
             label: string - Text Label that will be associated with this subscription.
         """
         input_params = {
-            'dcid': self.dcid,
+            'DCID': self.dcid,
             'size_gb': self.size_gb,
             'label': self.label
         }
@@ -64,3 +64,5 @@ class Volume(BaseAPI):
 
         if data:
             self.subid = data['SUBID']
+
+        return self

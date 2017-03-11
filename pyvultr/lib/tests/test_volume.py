@@ -41,5 +41,27 @@ class TestVolume(BaseTest):
         self.assertEqual(self.volume.attached_to_subid, 1313207)
         self.assertEqual(self.volume.label, "files2")
 
+    @responses.activate
+    def test_create(self):
+        data = self.load_from_file('volume/single.json')
+
+        url = self.base_url + 'block/create'
+        responses.add(responses.POST,
+                      url,
+                      body=data,
+                      status=200,
+                      content_type='application/json')
+
+        volume = pyvultr.lib.Volume(
+            dcid=1,
+            size_gb=10,
+            token=self.token
+        ).create()
+
+        self.assertEqual(responses.calls[0].request.url,
+                         self.base_url + "block/create")
+        self.assertEqual(volume.size_gb, 10)
+        self.assertEqual(volume.dcid, 1)
+
 if __name__ == '__main__':
     unittest.main()
