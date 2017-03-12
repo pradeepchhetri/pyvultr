@@ -11,7 +11,15 @@ try:
 except ImportError:
     from urllib.parse import urljoin
 
-import pyvultr.lib.exceptions
+from .exceptions import DataReadError
+from .exceptions import JSONReadError
+from .exceptions import NoTokenError
+from .exceptions import InvalidTokenError
+from .exceptions import InvalidAPIError
+from .exceptions import InvalidHTTPMethodError
+from .exceptions import RequestFailedError
+from .exceptions import InternalServerError
+from .exceptions import RateLimitHitError
 
 GET = 'GET'
 POST = 'POST'

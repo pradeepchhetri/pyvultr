@@ -66,3 +66,22 @@ class Volume(BaseAPI):
             self.subid = data['SUBID']
 
         return self
+
+    def delete(self, *args, **kwargs):
+        """
+        Deletes a Block Storage Volume.
+
+        Args:
+            subid: integer - Subscription id of the volume.
+        """
+        input_params = {
+            'SUBID': self.subid
+        }
+
+        data = self.get_data(
+            "block/delete",
+            type=GET,
+            params=input_params
+        )
+
+        return self

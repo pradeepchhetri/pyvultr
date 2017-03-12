@@ -63,5 +63,21 @@ class TestVolume(BaseTest):
         self.assertEqual(volume.size_gb, 10)
         self.assertEqual(volume.dcid, 1)
 
+    @responses.activate
+    def test_delete(self):
+        url = self.base_url + 'block/delete'
+        responses.add(responses.GET,
+                      url,
+                      status=200,
+                      content_type='application/json')
+
+        volume = pyvultr.lib.Volume(
+            subid=1313217,
+            token=self.token
+        ).delete()
+
+        self.assertEqual(responses.calls[0].request.url,
+                         self.base_url + "block/delete")
+
 if __name__ == '__main__':
     unittest.main()
