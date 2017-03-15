@@ -114,7 +114,7 @@ class BaseAPI(object):
     def get_data(self, url, type=GET, params=None):
         """
         This method is a basic implementation of __call_api that checks
-        errors too. In cas of success the method will return True or the
+        errors too. In case of success the method will return True or the
         content of the response to the request.
         """
         if params is None:

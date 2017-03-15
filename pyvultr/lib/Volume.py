@@ -85,3 +85,46 @@ class Volume(BaseAPI):
         )
 
         return self
+
+    def attach(self, *args, **kwargs):
+        """
+        Attaches a Block Storage Volume with an Instance.
+
+        Args:
+            subid: integer - Subscription id of the volume to attach.
+            attached_to_subid: integer - Subscription id of the instance to attach to.
+        """
+        input_params = {
+            'SUBID': self.subid,
+            'attach_to_SUBID': self.attached_to_subid
+        }
+
+        data = self.get_data(
+            "block/attach",
+            type=POST,
+            params=input_params
+        )
+
+        return self
+
+    def detach(self, *args, **kwargs):
+        """
+        Detaches a Block Storage Volume from an Instance.
+
+        Args:
+            subid: integer - Subscription if of the volume to detach.
+        """
+        input_params = {
+            'SUBID': self.subid
+        }
+
+        data = self.get_data(
+            "block/detach",
+            type=POST,
+            params=input_params
+        )
+
+        return self
+
+    def __str__(self):
+        return "<Volume: %s %s %s>" % (self.subid, self.label, self.size_gb)

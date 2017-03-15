@@ -79,5 +79,48 @@ class TestVolume(BaseTest):
         self.assertEqual(responses.calls[0].request.url,
                          self.base_url + "block/delete")
 
+    @responses.activate
+    def test_attach(self):
+        data = self.load_from_file('volume/single.json')
+
+        url = self.base_url + 'block/attach'
+        responses.add(responses.POST,
+                      url,
+                      body=data,
+                      status=200,
+                      content_type='application/json')
+
+        volume = pyvultr.lib.Volume(
+            subid=1313217,
+            attached_to_subid=1313207,
+            token=self.token
+        ).attach()
+
+        self.assertEqual(responses.calls[0].request.url,
+                         self.base_url + "block/attach")
+        self.assertEqual(volume.size_gb, None)
+        self.assertEqual(volume.dcid, None)
+
+    @responses.activate
+    def test_detach(self):
+        data = self.load_from_file('volume/single.json')
+
+        url = self.base_url + 'block/detach'
+        responses.add(responses.POST,
+                      url,
+                      body=data,
+                      status=200,
+                      content_type='application/json')
+
+        volume = pyvultr.lib.Volume(
+            subid=1313217,
+            token=self.token
+        ).detach()
+
+        self.assertEqual(responses.calls[0].request.url,
+                         self.base_url + "block/detach")
+        self.assertEqual(volume.size_gb, None)
+        self.assertEqual(volume.dcid, None)
+
 if __name__ == '__main__':
     unittest.main()
