@@ -126,5 +126,24 @@ class Volume(BaseAPI):
 
         return self
 
+    def resize(self, *args, **kwargs):
+        """
+        Resize the Block Storage Volume to a new size.
+
+        WARNING: Shrinking a volume should be done carefully.
+        """
+        input_params = {
+            'SUBID': self.subid,
+            'size_gb': self.size_gb
+        }
+
+        data = self.get_data(
+            "block/resize",
+            type=POST,
+            params=input_params
+        )
+
+        return self
+
     def __str__(self):
         return "<Volume: %s %s %s>" % (self.subid, self.label, self.size_gb)
