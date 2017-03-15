@@ -144,6 +144,26 @@ class TestVolume(BaseTest):
         self.assertEqual(volume.size_gb, 100)
         self.assertEqual(volume.dcid, None)
 
+    @responses.activate
+    def test_label_set(self):
+        data = self.load_from_file('volume/single.json')
+
+        url = self.base_url + 'block/label_set'
+        responses.add(responses.POST,
+                      url,
+                      body=data,
+                      status=200,
+                      content_type='application/json')
+
+        volume = pyvultr.lib.Volume(
+            subid=1313217,
+            label='example',
+            token=self.token
+        ).label_set()
+
+        self.assertEqual(responses.calls[0].request.url,
+                         self.base_url + "block/label_set")
+        self.assertEqual(volume.label, 'example')
 
 if __name__ == '__main__':
     unittest.main()

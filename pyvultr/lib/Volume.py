@@ -145,5 +145,22 @@ class Volume(BaseAPI):
 
         return self
 
+    def label_set(self, *args, **kwargs):
+        """
+        Set the label of a block storage subscription.
+        """
+        input_params = {
+            'SUBID': self.subid,
+            'label': self.label
+        }
+
+        data = self.get_data(
+            "block/label_set",
+            type=POST,
+            params=input_params
+        )
+
+        return self
+
     def __str__(self):
         return "<Volume: %s %s %s>" % (self.subid, self.label, self.size_gb)
