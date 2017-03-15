@@ -80,7 +80,7 @@ class Volume(BaseAPI):
 
         data = self.get_data(
             "block/delete",
-            type=GET,
+            type=POST,
             params=input_params
         )
 

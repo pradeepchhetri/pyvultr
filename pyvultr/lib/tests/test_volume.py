@@ -66,7 +66,7 @@ class TestVolume(BaseTest):
     @responses.activate
     def test_delete(self):
         url = self.base_url + 'block/delete'
-        responses.add(responses.GET,
+        responses.add(responses.POST,
                       url,
                       status=200,
                       content_type='application/json')

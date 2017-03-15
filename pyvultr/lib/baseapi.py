@@ -121,6 +121,7 @@ class BaseAPI(object):
             params = dict()
 
         req = self.__perform_request(url, type, params)
+        print(len(req.content))
 
         if req.status_code == 400:
             raise InvalidAPIError()
@@ -141,7 +142,10 @@ class BaseAPI(object):
             raise RateLimitHitError()
 
         try:
-            data = req.json()
+            if len(req.content) == 0:
+                data = {}
+            else:
+                data = req.json()
         except ValueError as e:
             raise JSONReadError(
                 'Read failed from Vultr: %s' % str(e)
