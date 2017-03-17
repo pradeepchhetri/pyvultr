@@ -1,0 +1,18 @@
+[
+    {
+        "type": "A",
+        "name": "",
+        "data": "127.0.0.1",
+        "priority": 0,
+        "RECORDID": 1265276,
+        "ttl": 300
+    },
+    {
+        "type": "CNAME",
+        "name": "*",
+        "data": "example.in",
+        "priority": 0,
+        "RECORDID": 1265277,
+        "ttl": 300
+    }
+]
