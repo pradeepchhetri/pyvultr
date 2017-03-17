@@ -12,10 +12,14 @@ cache: pip
 install:
   - pip install -U -r requirements/base.txt
   - pip install -U -r requirements/test.txt
+  - pip install codecov
   - pip install pytest-cov
 
 script:
   - py.test --cov=./
+
+after_success:
+  - codecov
 
 notifications:
   email: false
