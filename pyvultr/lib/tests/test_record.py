@@ -17,3 +17,5 @@ class TestRecord(BaseTest):
             domain_name="example.in",
             token=self.token
         )
+
+    

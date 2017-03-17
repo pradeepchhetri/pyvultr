@@ -1,18 +1,42 @@
 [
-    {
-        "type": "A",
-        "name": "",
-        "data": "127.0.0.1",
-        "priority": 0,
-        "RECORDID": 1265276,
-        "ttl": 300
-    },
-    {
-        "type": "CNAME",
-        "name": "*",
-        "data": "example.in",
-        "priority": 0,
-        "RECORDID": 1265277,
-        "ttl": 300
-    }
+  {
+    "type": "A",
+    "name": "",
+    "data": "127.0.0.1",
+    "priority": 0,
+    "RECORDID": 3586458,
+    "ttl": 300
+  },
+  {
+    "type": "CNAME",
+    "name": "*",
+    "data": "example.in",
+    "priority": 0,
+    "RECORDID": 3586459,
+    "ttl": 300
+  },
+  {
+    "type": "MX",
+    "name": "",
+    "data": "example.in",
+    "priority": 10,
+    "RECORDID": 3586460,
+    "ttl": 300
+  },
+  {
+    "type": "NS",
+    "name": "",
+    "data": "ns1.vultr.com",
+    "priority": 0,
+    "RECORDID": 3586456,
+    "ttl": 300
+  },
+  {
+    "type": "NS",
+    "name": "",
+    "data": "ns2.vultr.com",
+    "priority": 0,
+    "RECORDID": 3586457,
+    "ttl": 300
+  }
 ]

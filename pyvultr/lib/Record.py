@@ -25,6 +25,27 @@ class Record(BaseAPI):
         record.load()
         return record
 
+    def load(self):
+        """
+        Documentation: https://www.vultr.com/api/#dns_record_list
+        """
+        input_params = {
+            'domain': self.domain
+        }
+
+        records = self.get_data(
+            "dns/records",
+            type=GET,
+            params=input_params
+        )
+
+        for record in records:
+            if record["RECORDID"] == self.recordid:
+                for attr in record.keys():
+                    setattr(self, attr.lower(), record[attr])
+
+        return self
+
     def create(self):
         """
         Create a record for a domain.
