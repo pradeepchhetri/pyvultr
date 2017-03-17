@@ -128,3 +128,6 @@ class Record(BaseAPI):
         )
 
         return self
+
+    def __str__(self):
+        return "<Record: %s>" % (self.recordid)

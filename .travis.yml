@@ -12,9 +12,10 @@ cache: pip
 install:
   - pip install -U -r requirements/base.txt
   - pip install -U -r requirements/test.txt
+  - pip install pytest-cov
 
 script:
-  - python -m pytest
+  - py.test --cov=./
 
 notifications:
   email: false
