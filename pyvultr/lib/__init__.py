@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from .baseapi import BaseAPI
+
 from .Account import Account
 from .Application import Application
 from .Backup import Backup
