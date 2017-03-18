@@ -133,7 +133,7 @@ class BaseAPI(object):
             raise InvalidHTTPMethodError()
 
         if req.status_code == 412:
-            raise FailedRequestError()
+            raise RequestFailedError()
 
         if req.status_code == 500:
             raise InternalServerError()
