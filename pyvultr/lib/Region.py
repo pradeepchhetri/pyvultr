@@ -49,7 +49,7 @@ class Region(BaseAPI):
         Documentation: https://www.vultr.com/api/#regions_region_available
         """
         input_params = {
-            DCID': self.dcid
+            'DCID': self.dcid
         }
 
         available_vpsids = self.get_data(
